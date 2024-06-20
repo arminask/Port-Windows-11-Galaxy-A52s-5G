@@ -1,19 +1,20 @@
-<img align="right" src="https://github.com/wormstest/src_vayu_windows/blob/main/2Poco X3 Pro Windows.png" width="350" alt="Windows 11 Running On A Poco X3 Pro">
-
-
-# Running Windows on the POCO X3 Nfc
-
-## Installation
+# Installation
 
 ## Partitioning your device
 
 ## Notes:
-> **Warning** if you delete any partitions via diskpart later on or now windows will send a ufs command that gets misinterpreted which erase all your ufs
-- All your data will be erased! Backup now if needed.
-- These commands have been tested.
-- Ignore `udevadm` warnings
-- Do not run the same command twice
-- DO NOT REBOOT YOUR PHONE if you think you made a mistake, ask for help in the [Telegram chat](https://t.me/windows_on_pocox3_nfc)
+
+> [!WARNING]  
+> Do not run the same command twice unless specified.
+> 
+> DO NOT REBOOT YOUR PHONE! If you think you made a mistake, ask for help in the [Telegram chat]().
+> 
+> Do not run all commands at once, execute them in order!
+>
+> YOU CAN BREAK YOUR DEVICE WITH THE COMMANDS BELOW IF YOU DO THEM WRONG!!!
+
+
+## 
 
 #### Boot TWRP recovery through the PC with the command
 ```cmd
@@ -24,23 +25,11 @@ fastboot boot <twrp.img>
 #### Unmount all partitions
 Go to TWRP settings and unmount all partitions
 
- ## Push necessary tools:
-```cmd
-adb push parted /sbin
-```
-
 ## Start the ADB shell
 ```cmd
 adb shell
 ```
-
 ## Create Partitions
-
-### Give permissions
-```cmd
-chmod +x /sbin/*
-```
-
 
 ### Start parted
 ```sh
@@ -57,23 +46,6 @@ rm 16
 
 ### Create partitions
 > If you get any warning message telling you to ignore or cancel, just type i and enter
-
-#### For 64Gb models:
-
-- Create the ESP partition (stores Windows bootloader data and EFI files)
- ```sh
-mkpart esp fat32 10.8GB 11GB
-```
-
-- Create the main partition where Windows will be installed to
-```sh
-mkpart win ntfs 11GB 45GB 
-```
-
-- Create Android's data partition
-```sh
-mkpart userdata ext4 45GB 59.4GB
-```
 
 #### For 128Gb models:
 
