@@ -10,7 +10,7 @@
 
 ## Get Started
 
-- [Installation instructions](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/blob/main/guide/install.md)
+- [Installation instructions](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/blob/main/guide/partition.md)
 
 ## Miscellaneous
 
