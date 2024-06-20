@@ -41,7 +41,7 @@ Your device needs to boot into download mode
 >
 >4. As soon as the device turns off, press the **volume up** button and **power** button simultaneously to boot into **orangefox recovery**.
 
-#### Unmount all partitions
+#### Unmount data partitions
 - Click the menu button in orangefox recovery. Click the **Mount button**. Please **uncheck** the **data button**
 
 ## Start the ADB shell
