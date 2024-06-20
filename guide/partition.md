@@ -18,19 +18,19 @@
 
 - Have the bootloader unlocked
 
-- modified [orangefox]() recovery
+- [orangefox]()
 
-- Have downloaded the [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
+- [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
 
-- Please download the [uefi]() file for A52s
+- [uefi]()
 
-- Please download the [driver]() for A52s
+- [driver]()
 
-- You need the [vbmeta.tar]() file to install orangefox recovery
+- [vbmeta.tar]()
 
-- [Odin3](https://gitlab.com/Ryzen5950XT/odin_dl/-/raw/main/Odin3_v3.14.4.zip?inline=false) is required
+- [Odin3](https://gitlab.com/Ryzen5950XT/odin_dl/-/raw/main/Odin3_v3.14.4.zip?inline=false)
 
-- You need a [Windows ISO](https://uupdump.net/selectlang.php?id=9be0c3f7-8590-4a1c-b793-aaa0021e412a) file Windows version must be 26090
+- [Windows ISO](https://uupdump.net/selectlang.php?id=9be0c3f7-8590-4a1c-b793-aaa0021e412a)
 
 #### You need to boot into orangefox recovery
 Your device needs to boot into download mode
