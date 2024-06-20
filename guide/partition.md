@@ -31,16 +31,15 @@
 - [Odin3](https://gitlab.com/Ryzen5950XT/odin_dl/-/raw/main/Odin3_v3.14.4.zip?inline=false) is required
 
 #### You need to boot into orangefox recovery
-
->1. Your device needs to boot into download mode
+Your device needs to boot into download mode
 >
->2. With the device powered off, hold **Volume Up** and **Volume Down** and connect the USB cable to your PC.
+>1. With the device powered off, hold **Volume Up** and **Volume Down** and connect the USB cable to your PC.
 >
->3. Click **AP**, select the **orangefox** **recovery** file, and click the **Start** button to install.
+>2. Click **AP**, select the **orangefox** **recovery** file, and click the **Start** button to install.
 >
->4.  Then, it will automatically reboot into download mode again. There will be an error message, but ignore it. Click **AP** in Odin3, select **vbmeta.tar**, and click the **Start** button.
+>3.  Then, it will automatically reboot into download mode again. There will be an error message, but ignore it. Click **AP** in Odin3, select **vbmeta.tar**, and click the **Start** button.
 >
->5. As soon as the device turns off, press the **volume up** button and **power** button simultaneously to boot into **orangefox recovery**.
+>4. As soon as the device turns off, press the **volume up** button and **power** button simultaneously to boot into **orangefox recovery**.
 
 #### Unmount all partitions
 - Click the menu button in orangefox recovery. Click the **Mount button**. Please **uncheck** the **data button**
