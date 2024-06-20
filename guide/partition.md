@@ -18,7 +18,7 @@
 
 - Have the bootloader unlocked
 
-- [orangefox]()
+- [orangefox recovery]()
 
 - [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
 
