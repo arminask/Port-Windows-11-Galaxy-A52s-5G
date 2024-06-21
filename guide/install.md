@@ -130,6 +130,13 @@ exit
 dism /apply-image /ImageFile:<path/to/install.wim> /index:1 /ApplyDir:X:\
 ```
 
+>[!TIP]
+>
+>For UFS on Samsung devices, once Windows enters recovery mode, the partition label will be corrupted and the device will not work. This part is optional, but I recommend doing it.
+>
+> [Removing Windows recovery and disk checking](https://github.com/Project-Silicium/WoA-Guides/blob/main/Mu-Qcom/Vendors/Samsung/remove-win-recovery-disk-checking.md)
+>
+
 # Install Drivers
 
 > Replace `<Kodiakdriversfolder>` with the location of the drivers folder
