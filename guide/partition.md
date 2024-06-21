@@ -22,9 +22,9 @@
 
 - [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
 
-- [uefi]()
+- [uefi](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file)
 
-- [driver]()
+- [driver](https://github.com/cloudsweets/Kodiak-Drivers/archive/refs/heads/main.zip)
 
 - [vbmeta.tar](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file)
 
