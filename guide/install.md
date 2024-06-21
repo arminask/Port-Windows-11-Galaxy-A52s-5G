@@ -1,5 +1,3 @@
-# Running Windows on the POCO X3 Nfc
-
 ## Installation
 
 ### Activate `Mass storage mode` using this command
@@ -19,26 +17,78 @@ adb shell msc
 
 ### Please run the `Disk Management` program in Windows.
 
-![img]()
+![img](https://raw.githubusercontent.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/main/image/disk.png)
 
-Once mass storage mode is properly enabled, you will see a disk that is offline and has many partitions.
+**Once mass storage mode is properly enabled, you will see a disk that is offline and has many partitions.**
+
+ **Click on the disk, left-click, and click the online button.**
+
+
+## Restore GPT
+
+Please start adb shell using this command
+
+```cmd
+adb shell
+```
+
+You need gdisk to recover the GPT. Enter this command to use gdisk.
+
+```cmd
+gdisk /dev/block/sda
+```
+
+## Now you need to restore GPT using gdisk.
+
+```
+Command (? for help):
+```
+**If this phrase appears, enter `r`**
+
+```
+Recovery/transformation command (? for help):
+```
+
+**If you entered it correctly, this message will appear. Please enter `c` at this time.**
+
+```
+Warning! This will probably do weird things if you've converted an MBR to
+GPT form and haven't yet saved the GPT! Proceed? (Y/N):
+```
+
+**Then, if this phrase appears, enter `y`**
+
+```
+Recovery/transformation command (? for help):
+```
+
+**If you've made it this far, you'll see this message again. Please enter `w` this time**
+
+```
+Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+PARTITIONS!!
+
+Do you want to proceed? (Y/N):
+```
+
+**Then type `y` when this phrase appears.**
+
+![img](https://raw.githubusercontent.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/main/image/disk2.png)
+
+**If you have made it this far, please run the `Disk Management` program. If all goes well, it will come online and many partitions will be displayed.**
 
 ## Assign letters to disks
 
-
-#### Start the Windows disk manager
-
-> Once the X3 Nfc is detected as a disk
+#### Please enter this command in cmd
 
 ```cmd
 diskpart
 ```
 
-
 ### Assign `X` to Windows volume
 
 #### Select the Windows volume of the phone
-> Use `list volume` to find it, it's the ones named "WINSURYA" and "ESPSURYA"
+> Use `list volume` to find it, it's the ones named "WINA52SXQ" and "ESPA52SXQ"
 
 ```diskpart
 select volume <number>
@@ -69,9 +119,6 @@ assign letter=y
 exit
 ```
 
-  
-  
-
 ## Install
 
 > Replace `<path/to/install.wim>` with the actual install.wim path,
@@ -85,13 +132,11 @@ dism /apply-image /ImageFile:<path/to/install.wim> /index:1 /ApplyDir:X:\
 
 # Install Drivers
 
-> Replace `<suryadriversfolder>` with the location of the drivers folder
+> Replace `<Kodiakdriversfolder>` with the location of the drivers folder
 
 ```cmd
-driverupdater.exe -d <suryariversfolder>\definitions\Desktop\ARM64\Internal\surya.txt -r <suryadriversfolder> -p X:
+driverupdater.exe -d <Kodiakdriversfolder>\definitions\Desktop\ARM64\Internal\kodiak.txt -r <Kodiakdriversfolder> -p X:
 ```
-
-  
 
 # Create Windows bootloader files for the EFI
 
@@ -99,15 +144,18 @@ driverupdater.exe -d <suryariversfolder>\definitions\Desktop\ARM64\Internal\sury
 bcdboot X:\Windows /s Y: /f UEFI
 ```
 
-  
-  
-
 # Allow unsigned drivers
 
 > If you don't do this you'll get a BSOD
 
 ```cmd
 bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set {default} testsigning on
+
+bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" nointegritychecks on
+
+bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" recoveryenabled no
+
+bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" bootstatuspolicy IgnoreAllFailures
 ```
 
 # Boot into Windows
@@ -121,20 +169,18 @@ adb push <uefi.img> /sdcard
 ##### if you have a microSD card use this
 
 ```cmd
-adb push <uefi.img> /external_sd
+adb push <uefi.img> /sdcard1
 ```
-
 
 ### Make a backup of your existing boot image
 > You need to do it just once
 
 > Put it to the microSD card if possible
 
-
-### Flash the uefi image from TWRP
+### Flash the uefi image from orangefox recovery
 Navigate to the `uefi.img` file and flash it into boot
 
 # Boot back into Android
-> Use your backup boot image from TWRP
+> Use your backup boot image from orangefox recovery
 
 # Finished!
