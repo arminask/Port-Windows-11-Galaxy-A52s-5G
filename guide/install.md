@@ -160,16 +160,16 @@ bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" bootstatuspolicy Ignor
 
 # Boot into Windows
 
-### Move the `<uefi.img>` file to the device
+### Move the `<Mu-a52sxq.img>` file to the device
 
 ```cmd
-adb push <uefi.img> /sdcard
+adb push <Mu-a52sxq.img> /sdcard
 ```
 
 ##### if you have a microSD card use this
 
 ```cmd
-adb push <uefi.img> /sdcard1
+adb push <Mu-a52sxq.img> /sdcard1
 ```
 
 ### Make a backup of your existing boot image
@@ -178,7 +178,7 @@ adb push <uefi.img> /sdcard1
 > Put it to the microSD card if possible
 
 ### Flash the uefi image from orangefox recovery
-Navigate to the `uefi.img` file and flash it into boot
+Navigate to the `Mu-a52sxq.img` file and flash it into boot
 
 > [!IMPORTANT]
 >
