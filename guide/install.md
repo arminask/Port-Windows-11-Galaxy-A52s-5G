@@ -2,24 +2,29 @@
 
 ## Installation
 
-> You will need to have MTP disabled in Mount
-
-
-## Push necessary tools:
-```cmd
-adb push msc.sh /sbin
-```
-
-### Execute the msc script
+### Activate `Mass storage mode` using this command
 
 ```cmd
-adb shell sh /sbin/msc.sh
+adb shell msc
 ```
 
-  
+## Change Samsung UFS from offline to online
+
+> [!WARNING]  
+>
+> **Please pay attention to this part. If you do it wrong, it can make your Samsung UFS clean.**
+>
+> **Please note that in the case of A52s, the firehose cannot be found and recovery is almost impossible.**
+>
+
+### Please run the `Disk Management` program in Windows.
+
+![img]()
+
+Once mass storage mode is properly enabled, you will see a disk that is offline and has many partitions.
 
 ## Assign letters to disks
-  
+
 
 #### Start the Windows disk manager
 

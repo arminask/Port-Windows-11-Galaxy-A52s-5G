@@ -18,7 +18,7 @@
 
 - Have the bootloader unlocked
 
-- [orangefox recovery]()
+- [orangefox recovery](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file)
 
 - [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
 
@@ -26,7 +26,7 @@
 
 - [driver]()
 
-- [vbmeta.tar]()
+- [vbmeta.tar](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file)
 
 - [Odin3](https://gitlab.com/Ryzen5950XT/odin_dl/-/raw/main/Odin3_v3.14.4.zip?inline=false)
 
@@ -119,4 +119,4 @@ then type `yes`.
 ### Check if Android still starts
 just restart the phone, and see if Android still works
 
-## [Next step: Install Windows]()
+## [Next step: Install Windows](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/blob/main/guide/install.md)
