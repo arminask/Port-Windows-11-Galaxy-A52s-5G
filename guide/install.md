@@ -180,6 +180,11 @@ adb push <uefi.img> /sdcard1
 ### Flash the uefi image from orangefox recovery
 Navigate to the `uefi.img` file and flash it into boot
 
+> [!IMPORTANT]
+>
+> Flash UEFI, unplug the USB, and boot. Then, when Windows OOBE appears, connect the USB. If you don't do this, the device will stop when Windows boots.
+>
+
 # Boot back into Android
 > Use your backup boot image from orangefox recovery
 
