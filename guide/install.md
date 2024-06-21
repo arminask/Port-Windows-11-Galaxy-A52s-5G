@@ -130,13 +130,6 @@ exit
 dism /apply-image /ImageFile:<path/to/install.wim> /index:1 /ApplyDir:X:\
 ```
 
->[!TIP]
->
->For UFS on Samsung devices, once Windows enters recovery mode, the partition label will be corrupted and the device will not work. This part is optional, but I recommend doing it.
->
-> [Removing Windows recovery and disk checking](https://github.com/Project-Silicium/WoA-Guides/blob/main/Mu-Qcom/Vendors/Samsung/remove-win-recovery-disk-checking.md)
->
-
 # Install Drivers
 
 > Replace `<Kodiakdriversfolder>` with the location of the drivers folder
@@ -164,6 +157,13 @@ bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" recoveryenabled no
 
 bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" bootstatuspolicy IgnoreAllFailures
 ```
+
+>[!TIP]
+>
+>For UFS on Samsung devices, once Windows enters recovery mode, the partition label will be corrupted and the device will not work. This part is optional, but I recommend doing it.
+>
+> [Removing Windows recovery and disk checking](https://github.com/Project-Silicium/WoA-Guides/blob/main/Mu-Qcom/Vendors/Samsung/remove-win-recovery-disk-checking.md)
+>
 
 # Boot into Windows
 
@@ -195,4 +195,8 @@ Navigate to the `Mu-a52sxq.img` file and flash it into boot
 # Boot back into Android
 > Use your backup boot image from orangefox recovery
 
+> [!CAUTION]
+>
+> Do not force the device to shut down after Windows boots. Doing so may cause Windows to enter recovery mode the next time you boot Windows, which could damage your device. If you force quit by mistake, do not boot Windows, but boot into Orange Fox Recovery and reinstall Windows.
+>
 # Finished!
