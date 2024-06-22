@@ -1,4 +1,4 @@
-## Installation
+# Install Windows
 
 ### Activate `Mass storage mode` using this command
 
