@@ -1,6 +1,6 @@
 # Install Windows
 
-### Activate `Mass storage mode` using this command
+### Activate **Mass storage mode** using this command
 
 ```cmd
 adb shell msc
@@ -43,26 +43,26 @@ gdisk /dev/block/sda
 ```
 Command (? for help):
 ```
-**If this phrase appears, enter `r`**
+**If this phrase appears, enter (r)**
 
 ```
 Recovery/transformation command (? for help):
 ```
 
-**If you entered it correctly, this message will appear. Please enter `c` at this time.**
+**If you entered it correctly, this message will appear. Please enter (c) at this time.**
 
 ```
 Warning! This will probably do weird things if you've converted an MBR to
 GPT form and haven't yet saved the GPT! Proceed? (Y/N):
 ```
 
-**Then, if this phrase appears, enter `y`**
+**Then, if this phrase appears, enter (y)**
 
 ```
 Recovery/transformation command (? for help):
 ```
 
-**If you've made it this far, you'll see this message again. Please enter `w` this time**
+**If you've made it this far, you'll see this message again. Please enter (w) this time**
 
 ```
 Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
@@ -71,11 +71,11 @@ PARTITIONS!!
 Do you want to proceed? (Y/N):
 ```
 
-**Then type `y` when this phrase appears.**
+**Then type (y) when this phrase appears.**
 
 ![img](https://raw.githubusercontent.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/main/image/disk2.png)
 
-**If you have made it this far, please run the `Disk Management` program. If all goes well, it will come online and many partitions will be displayed.**
+**If you have made it this far, please run the Disk Management program. If all goes well, it will come online and many partitions will be displayed.**
 
 ## Assign letters to disks
 
