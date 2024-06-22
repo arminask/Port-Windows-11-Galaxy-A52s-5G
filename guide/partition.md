@@ -1,6 +1,4 @@
-# Installation
-
-## Partitioning your device
+# Partitioning your device
 
 ## Notes:
 
