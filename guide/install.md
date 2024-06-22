@@ -195,8 +195,8 @@ Navigate to the `Mu-a52sxq.img` file and flash it into boot
 # Boot back into Android
 > Use your backup boot image from orangefox recovery
 
+# Finished!
 > [!CAUTION]
 >
 > Do not force the device to shut down after Windows boots. Doing so may cause Windows to enter recovery mode the next time you boot Windows, which could damage your device. If you force quit by mistake, do not boot Windows, but boot into Orange Fox Recovery and reinstall Windows.
 >
-# Finished!
