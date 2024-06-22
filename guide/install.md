@@ -15,7 +15,7 @@ adb shell msc
 > **Please note that in the case of A52s, the firehose cannot be found and recovery is almost impossible.**
 >
 
-### Please run the `Disk Management` program in Windows.
+### Please run a program called `Disk Management` in Windows.
 
 ![img](https://raw.githubusercontent.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/main/image/disk.png)
 
