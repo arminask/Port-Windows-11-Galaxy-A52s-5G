@@ -6,6 +6,8 @@
 > Do not run the same command twice unless specified.
 > 
 > DO NOT REBOOT YOUR PHONE! If you think you made a mistake, ask for help in the [Telegram chat](https://t.me/+zVyKolc2Zec5N2Vl).
+>
+> If there is anything you do not understand or have difficulty with, please ask through [Telegram chat](https://t.me/+zVyKolc2Zec5N2Vl).
 > 
 > Do not run all commands at once, execute them in order! 
 >
