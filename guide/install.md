@@ -40,36 +40,29 @@ gdisk /dev/block/sda
 
 ## Now you need to restore GPT using gdisk.
 
-```
-Command (? for help):
-```
+
+>Command (? for help):
+
 **If this phrase appears, enter (r)**
 
-```
-Recovery/transformation command (? for help):
-```
+
+>Recovery/transformation command (? for help):
+
 
 **If you entered it correctly, this message will appear. Please enter (c) at this time.**
 
-```
-Warning! This will probably do weird things if you've converted an MBR to
+>Warning! This will probably do weird things if you've converted an MBR to
 GPT form and haven't yet saved the GPT! Proceed? (Y/N):
-```
 
 **Then, if this phrase appears, enter (y)**
 
-```
-Recovery/transformation command (? for help):
-```
+>Recovery/transformation command (? for help):
 
 **If you've made it this far, you'll see this message again. Please enter (w) this time**
 
-```
-Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+>Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
 PARTITIONS!!
-
 Do you want to proceed? (Y/N):
-```
 
 **Then type (y) when this phrase appears.**
 
