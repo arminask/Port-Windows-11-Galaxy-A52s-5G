@@ -1,6 +1,22 @@
 # Install Windows
 
-### Activate **Mass storage mode** using this command
+> [!CAUTION]
+> Please read everything slowly and carefully! DO NOT run a command twice if something has failed.
+> 
+> If you see a warning/error during the proccess, DO NOT continue (unless the guide states that it's normal).
+> 
+> Instead, ask for help in the Telegram group.
+>
+> And most importantly, **DO NOT reboot** your phone in this proccess.
+
+> [!WARNING]  
+> If you do not follow the guide exactly as it's written, you will most certainly brick your device.
+> 
+> **Please note that in case you do brick your phone, firehorse is not available, so chances of recovering are slim to none.**
+
+<br>
+
+## Activate **Mass storage mode** using this command
 
 ```cmd
 adb shell msc
@@ -8,21 +24,22 @@ adb shell msc
 
 ## Change Samsung UFS from offline to online
 
-> [!WARNING]  
->
-> **Please pay attention to this part. If you do it wrong, it can make your Samsung UFS clean.**
->
-> **Please note that in the case of A52s, the firehose cannot be found and recovery is almost impossible.**
->
 
-### Please run the **Disk Management** program in Windows.
+Please run the **Disk Management** program in Windows.
+
+Type "Disk Management" in Windows search and click on "Create and format hard disk partitions"
+
+Find your phone's disk, Disk Management should report it as offline:
 
 ![img](https://raw.githubusercontent.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/main/image/disk.png)
 
-**Once mass storage mode is properly enabled, you will see a disk that is offline and has many partitions.**
+Right click on your disk and select the "Online" option.
 
- **Click on the disk, left-click, and click the online button.**
+Now you will see just one partition instead of multiple individual ones.
+That's because Windows corrupted your phone's GPT partition table after you have set it to Online.
+To fix it, follow the steps below.
 
+<br>
 
 ## Restore GPT
 
@@ -37,9 +54,9 @@ You need gdisk to recover the GPT. Enter this command to use gdisk.
 ```cmd
 gdisk /dev/block/sda
 ```
+<br>
 
-## Now you need to restore GPT using gdisk.
-
+You will now see multiple warnings from gdisk. That's normal, follow the guide below.
 
 >Command (? for help):
 
@@ -49,16 +66,16 @@ gdisk /dev/block/sda
 >Recovery/transformation command (? for help):
 
 
-**If you entered it correctly, this message will appear. Please enter (c) at this time.**
+**If you entered it correctly, this message will appear, now enter (c)**
 
 >Warning! This will probably do weird things if you've converted an MBR to
 GPT form and haven't yet saved the GPT! Proceed? (Y/N):
 
-**Then, if this phrase appears, enter (y)**
+**If this phrase appeared, enter (y)**
 
 >Recovery/transformation command (? for help):
 
-**If you've made it this far, you'll see this message again. Please enter (w) this time**
+**If you've made it this far, you'll see this message again. Now please enter (w)**
 
 >Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
 PARTITIONS!!
@@ -66,80 +83,98 @@ Do you want to proceed? (Y/N):
 
 **Then type (y) when this phrase appears.**
 
+Gdisk will now exit and your UFS LUN should now be online and restored.
+
+
+To check that, refresh Disk Management and you should see all of your partitions listed:
+
 ![img](https://raw.githubusercontent.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/main/image/disk2.png)
 
-**If you have made it this far, please run the Disk Management program. If all goes well, it will come online and many partitions will be displayed.**
+**Now exit adb shell from your terminal with this command**
+
+```cmd
+exit
+````
+
+<br>
 
 ## Assign letters to disks
 
-#### Please enter this command in cmd
+Execute diskpart by running this command
 
 ```cmd
 diskpart
 ```
 
-### Assign `X` to Windows volume
+**Assign letter `X` to Windows volume**
 
-#### Select the Windows volume of the phone
+Select the Windows volume of the phone
 > Use `list volume` to find it, it's the ones named "WINA52SXQ" and "ESPA52SXQ"
 
 ```diskpart
 select volume <number>
 ```
 
-#### Assign the letter X
+Assign the letter X
 ```diskpart
 assign letter=x
 ```
 
-### Assign `Y` to esp volume
+**Assign letter `Y` to esp volume**
 
-#### Select the esp volume of the phone
+Select the esp volume of the phone
 > Use `list volume` to find it, it's usually the last one
 
 ```diskpart
 select volume <number>
 ```
 
-#### Assign the letter Y
-
+Assign the letter Y
 ```diskpart
 assign letter=y
 ```
 
-### Exit diskpart:
+**Once done, exit diskpart**
+
 ```diskpart
 exit
 ```
 
-## Install
+<br>
 
-> Replace `<path/to/install.wim>` with the actual install.wim path,
+## Apply Windows image
 
-> `install.wim` is located in sources folder inside your ISO
-> You can get it either by mounting or extracting it
+> Replace `<path/to/install.wim>` with the actual install.wim path.
+> 
+> `install.wim` is located in sources folder inside your ISO.
+> 
+> You can mount the ISO and specify the full path to the .wim file inside the mounted ISO.
 
 ```cmd
 dism /apply-image /ImageFile:<path/to/install.wim> /index:1 /ApplyDir:X:\
 ```
 
-# Install Drivers
+<br>
 
-> Replace `<Kodiakdriversfolder>` with the location of the drivers folder
+## Install Drivers
+
+> Extract the drivers you downloaded earlier and open a terminal in the drivers directory.
 
 ```cmd
-driverupdater.exe -d <Kodiakdriversfolder>\definitions\Desktop\ARM64\Internal\kodiak.txt -r <Kodiakdriversfolder> -p X:
+.\driverupdater.exe -d definitions\Desktop\ARM64\Internal\kodiak.txt -r . -p X:
 ```
 
-# Create Windows bootloader files for the EFI
+<br>
+
+## Create Windows BCD boot files for EFI partition
 
 ```cmd
 bcdboot X:\Windows /s Y: /f UEFI
 ```
 
-# Allow unsigned drivers
+**Allow unsigned drivers**
 
-> If you don't do this you'll get a BSOD
+> Enabling testsigning and integrity checks is crucial, since A52s Windows drivers are not signed.
 
 ```cmd
 bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" testsigning on
@@ -151,45 +186,72 @@ bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" recoveryenabled no
 bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" bootstatuspolicy IgnoreAllFailures
 ```
 
->[!TIP]
+>[!WARNING]
 >
->For UFS on Samsung devices, once Windows enters recovery mode, the partition label will be corrupted and the device will not work. This part is optional, but I recommend doing it.
+>If your phone enters Windows [recovery mode](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference?view=windows-11),
+>it will damage your UFS LUN and brick the device.
 >
-> [Removing Windows recovery and disk checking](https://github.com/Project-Silicium/WoA-Guides/blob/main/Mu-Qcom/Vendors/Samsung/remove-win-recovery-disk-checking.md)
+>This issue only occurs on Samsung devices running Windows.
+>
+>To make sure that never happens, it is strongly recommended to
+> [follow this guide](https://github.com/Project-Silicium/WoA-Guides/blob/main/Mu-Qcom/Vendors/Samsung/remove-win-recovery-disk-checking.md).
 >
 
-# Boot into Windows
+<br>
 
-### Move the `<Mu-a52sxq.img>` file to the device
+## Boot into Windows
+
+To boot Windows, you will need to flash UEFI image to your Android boot partition.
+
+**Copy UEFI (that you downloaded earlier) `<Mu-a52sxq.img>` file to your phone with this command**
 
 ```cmd
 adb push <Mu-a52sxq.img> /sdcard
 ```
 
-##### if you have a microSD card use this
+**If you have an SD Card inserted, use this command**
+
+Make sure SD Card is mounted in recovery before running it.
 
 ```cmd
 adb push <Mu-a52sxq.img> /sdcard1
 ```
 
-### Make a backup of your existing boot image
-> You need to do it just once
+**Make a backup of your existing boot image**
 
-> Put it to the microSD card if possible
+You need to make a backup of your stock boot image.
 
-### Flash the uefi image from orangefox recovery
-Navigate to the `Mu-a52sxq.img` file and flash it into boot
+Without it you won't be able to boot Android.
+
+You can do this by using the "Backup" function in recovery, or copying the stock boot image to your computer:
+
+```cmd
+adb pull /dev/block/bootdevice/boot .
+```
+
+
+**Flash the uefi image from orangefox recovery**
+
+Navigate to the `Mu-a52sxq.img` file in recovery and flash it to boot partition.
 
 > [!IMPORTANT]
 >
 > Flash UEFI, unplug the USB, and boot. Then, when Windows OOBE appears, connect the USB. If you don't do this, the device will stop when Windows boots.
 >
 
-# Boot back into Android
-> Use your backup boot image from orangefox recovery
+<br>
 
-# Finished!
+## Boot back into Android
+Reboot to recovery and restore the stock Android boot image backup that you have backed up earlier.
+
+If you didn't do the backup step, you will need to extract the stock boot image from your device firmware.
+
+<br>
+
+## Finished!
 > [!CAUTION]
->
-> Do not force the device to shut down after Windows boots. Doing so may cause Windows to enter recovery mode the next time you boot Windows, which could damage your device. If you force quit by mistake, do not boot Windows, but boot into Orange Fox Recovery and reinstall Windows.
->
+> Do not force the device to shut down after Windows boots.
+> 
+> Doing that may cause Windows to enter recovery mode the next time you boot Windows, which could damage your device. If you force reboot by mistake, do not boot Windows, but boot into Orange Fox Recovery and reinstall Windows.
+> 
+> This can be avoided if you [remove Windows recovery environment entirely](https://github.com/Project-Silicium/WoA-Guides/blob/main/Mu-Qcom/Vendors/Samsung/remove-win-recovery-disk-checking.md) from your device.
