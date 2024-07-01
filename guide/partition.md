@@ -124,7 +124,7 @@ If you don't do this, you won't be able to proceed with the guide!
 
 ## Format modified partitions
 
-**Start adb shell again on your PC**
+- Start adb shell again on your PC
 ```cmd
 adb shell
 ```
