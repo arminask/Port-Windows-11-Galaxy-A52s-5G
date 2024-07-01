@@ -33,27 +33,38 @@
 - [Windows ISO](https://uupdump.net/selectlang.php?id=9be0c3f7-8590-4a1c-b793-aaa0021e412a)
   #Windows version must be 26090
 
-#### You need to boot into orangefox recovery
-Your device needs to boot into download mode
+## Flash modified OrangeFox recovery
 >
->1. With the device powered off, hold **Volume Up** and **Volume Down** and connect the USB cable to your PC.
+>1. Power off your phone
 >
->2. Click **AP**, select the **orangefox** **recovery** file, and click the **Start** button to install.
+>2. Connect the phone to your PC with a USB cable and immediately hold **Volume Up** and **Volume Down** buttons simultaneously.
 >
->3.  Then, it will automatically reboot into download mode again. There will be an error message, but ignore it. Click **AP** in Odin3, select **vbmeta.tar**, and click the **Start** button.
+>3. Once your phone enters Download mode, open Odin application on your PC.
 >
->4. As soon as the device turns off, press the **volume up** button and **power** button simultaneously to boot into **orangefox recovery**.
+>4. Click **AP** and select the **orangefox.tar** file
+>
+>5. Click **USERDATA** and select the **vbmeta.tar** file.
+>
+>6. Click **Start** button to begin flashing, your device will reboot automatically.
+>
+>7. As soon as the phone turns off, hold the **volume up** and **power** buttons simultaneously to boot into **OrangeFox recovery**.
 
-#### Unmount data partitions
-- Click the menu button in orangefox recovery. Click the **Mount button**. Please **uncheck** the **data button**
+## Modifying the partition table
 
-## Start the ADB shell
+**1. Unmount the Data partition**
+
+Open the menu button in OrangeFox recovery and then click on the **Mount** button. Uncheck the **Data** button.
+
+<br>
+
+**2. Open a terminal/cmd on your PC and enter recovery shell**
 ```sh
 adb shell
 ```
-## Create Partitions
 
-### Start parted
+<br>
+
+**3. Start `parted` program**
 ```sh
 parted /dev/block/sda
 ```
