@@ -10,11 +10,11 @@
 
 ## Get Started
 
-- [Installation instructions](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/blob/main/guide/partition.md)
+- [Installation instructions](guide/partition.md)
 
 ## Miscellaneous
 
-- [Project Status](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/blob/main/guide/status.md)
+- [Project Status](guide/status.md)
 
 ## Contributors
 [<img alt="Renegade Project" src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/63859504?s=200&v=4&w=45&fit=cover&mask=circle&maxage=7d" />](https://github.com/edk2-porting)
