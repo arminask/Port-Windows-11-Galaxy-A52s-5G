@@ -30,8 +30,8 @@
 
 - [Odin3](https://gitlab.com/Ryzen5950XT/odin_dl/-/raw/main/Odin3_v3.14.4.zip?inline=false)
 
-- [Windows ISO](https://uupdump.net/selectlang.php?id=9be0c3f7-8590-4a1c-b793-aaa0021e412a)
-  #Windows version must be 26090
+- [Windows ISO](https://uupdump.net/download.php?id=9be0c3f7-8590-4a1c-b793-aaa0021e412a&pack=en-us&edition=professional)
+  Build must be 26090. Leave all default options and click "Create download package".
 
 
 ## Flash modified OrangeFox recovery
@@ -151,4 +151,4 @@ After making changes to the partition table you need to verify if your phone can
 
 Be sure to verify that by rebooting to system.
 
-## [Next step: Install Windows](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/blob/main/guide/install.md)
+## [Next step: Install Windows](install.md)
