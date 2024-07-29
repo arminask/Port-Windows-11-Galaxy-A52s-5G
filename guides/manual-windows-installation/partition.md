@@ -68,7 +68,7 @@ parted /dev/block/sda
 
 Enter `p` command to print the existing partitions
 
-<img src="../image/parted-print.png" width="312" height="339">
+<img src="images/parted-print.png" width="312" height="339">
 
 You should have 34 partitions in total with the last 34th one being `userdata`.
 
