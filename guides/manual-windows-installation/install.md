@@ -31,7 +31,7 @@ Type "Disk Management" in Windows search and click on "Create and format hard di
 
 Find your phone's disk, Disk Management should report it as offline:
 
-![img](../image/disk.png)
+![img](images/disk.png)
 
 Right click on your disk and select the "Online" option.
 
@@ -88,7 +88,7 @@ Gdisk will now exit and your UFS LUN should now be online and restored.
 
 To check that, refresh Disk Management and you should see all of your partitions listed:
 
-![img](../image/disk2.png)
+![img](images/disk2.png)
 
 **Now exit adb shell from your terminal with this command**
 
