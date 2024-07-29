@@ -10,7 +10,7 @@ This guide is for removing Windows from your phone and restoring the stock parti
 
 - [Odin3](https://gitlab.com/Ryzen5950XT/odin_dl/-/raw/main/Odin3_v3.14.4.zip?inline=false)
 
-- [PIT file](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file) *
+- [PIT file for 128GB models](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file) *
 
 >
 > This PIT file is for SM-A528B model with 128GB storage only!
@@ -55,3 +55,8 @@ After you inserted the file, simply click the `Start` button.
 You should see a message in Odin that the flash was successful and your phone should reboot.
 
 If you've done everrything correctly, your phone should be restored to the stock partition layout.
+
+Additionally, if also have the UEFI flashed to the boot partition, you will need to flash the stock boot image
+to your phone.
+
+If you don't have a backup of boot.img, you can extract it from the stock firmware of your device.
