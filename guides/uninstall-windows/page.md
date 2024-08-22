@@ -10,7 +10,7 @@ This guide is for removing Windows from your phone and restoring the stock parti
 
 - [Odin3](https://gitlab.com/Ryzen5950XT/odin_dl/-/raw/main/Odin3_v3.14.4.zip?inline=false)
 
-- [PIT file for 128GB models](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file) *
+- [PIT file for 128GB models](https://box.ver.lt/cloud/index.php/s/2HkjS5P6DaoPaoT) *
 
 >
 > This PIT file is for SM-A528B model with 128GB storage only!
