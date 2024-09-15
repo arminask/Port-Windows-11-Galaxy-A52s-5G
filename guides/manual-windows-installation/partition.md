@@ -22,7 +22,7 @@
 
 - [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
 
-- [UEFI](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file)
+- [UEFI](https://t.me/a52sxq_uefi/3261)
 
 - [Windows drivers](https://github.com/arminask/Kodiak-Drivers.git)
 
