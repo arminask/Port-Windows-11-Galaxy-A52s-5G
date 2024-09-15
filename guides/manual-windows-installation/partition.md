@@ -24,7 +24,7 @@
 
 - [UEFI](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file)
 
-- [Windows drivers](https://github.com/cloudsweets/Kodiak-Drivers/archive/refs/heads/main.zip)
+- [Windows drivers](https://github.com/arminask/Kodiak-Drivers.git)
 
 - [Disabled vbmeta.tar](https://github.com/cloudsweets/Port-Windows-11-Galaxy-A52s-5G/releases/tag/file)
 
